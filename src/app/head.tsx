@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/google-font-display */
+/* eslint-disable @next/next/no-page-custom-font */
 export default function Head() {
   return (
     <>
@@ -8,6 +10,7 @@ export default function Head() {
 
       <link
         precedence="default"
+        display="optional"
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
       />
