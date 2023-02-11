@@ -2,7 +2,7 @@ import { Stock } from "@/app/page";
 import Tag from "@/components/Tag";
 import Link from "next/link";
 
-const getData = async (keyValue, index, stockId) => {
+const getData = async (keyValue: string, index: string, stockId: string) => {
   const res = await fetch(
     `https://ineuron-stock-server.onrender.com/api/v1/data/variable/${keyValue.replace(
       "%24",
@@ -19,12 +19,12 @@ const getData = async (keyValue, index, stockId) => {
   return response.data;
 };
 
-const ValuesList = ({ stock }) => {
+const ValuesList = ({ stock }: { stock: any }) => {
   return (
     <ul role="list" className="divide-y divide-gray-200">
       {stock.values
-        .sort((a, b) => a - b)
-        .map((e) => (
+        .sort((a: number, b: number) => a - b)
+        .map((e: number) => (
           <li className="flex py-4" key={e}>
             {e}
           </li>
@@ -33,7 +33,7 @@ const ValuesList = ({ stock }) => {
   );
 };
 
-const IndicatorsList = ({ stock }) => {
+const IndicatorsList = ({ stock }: { stock: any }) => {
   return (
     <>
       <ul role="list" className="divide-y divide-gray-200">
@@ -68,12 +68,18 @@ const IndicatorsList = ({ stock }) => {
   );
 };
 
+type Props = {
+  params: {
+    keyValue: string;
+    index: string;
+    stockId: string;
+  };
+};
+
 export default async function Details({
   params: { keyValue, index, stockId },
-}) {
+}: Props) {
   const stock = await getData(keyValue, index, stockId);
-
-  console.log(stock);
 
   return (
     <main className="flex flex-col justify-center  h-screen">
