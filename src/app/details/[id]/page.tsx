@@ -32,12 +32,11 @@ const getData = async (id: String): Promise<Stock> => {
 const Description = ({ text, variable, index, id }: DescriptionProps) => {
   if (!variable) return <p className="font-medium text-gray-900">{text}</p>;
 
-  const keys = Object.keys(variable);
-
   return (
     <p className="font-medium text-gray-900">
-      {text.split(" ").map((e, i) => {
+      {text.split(" ").map((e) => {
         if (e.startsWith("$")) {
+          // $ is the variable prefix
           return (
             <a
               href={`/variable/${e}/${index}/${id}`}

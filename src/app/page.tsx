@@ -17,7 +17,7 @@ export type Stock = {
       variable: {
         [key: string]: {
           type: string;
-          value: Array<Number>;
+          values: Array<Number>;
         };
       };
     }
