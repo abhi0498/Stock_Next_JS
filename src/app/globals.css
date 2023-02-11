@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+
+.variable-text {
+  --tw-text-opacity: 1;
+  color: rgb(99 102 241 / var(--tw-text-opacity));
+}
+
+.red-tag {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+  color: rgb(153 27 27);
+}
+
+.green-tag {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+  color: rgb(22 101 52);
+}
+
+@tailwind utilities;
