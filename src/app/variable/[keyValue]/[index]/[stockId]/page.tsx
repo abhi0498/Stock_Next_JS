@@ -7,7 +7,8 @@ const getData = async (keyValue: string, index: string, stockId: string) => {
     `https://ineuron-stock-server.onrender.com/api/v1/data/variable/${keyValue.replace(
       "%24",
       "$"
-    )}/${index}/${stockId}`
+    )}/${index}/${stockId}`,
+    { cache: "no-store" }
   );
 
   if (!res.ok) {
@@ -77,7 +78,7 @@ type Props = {
 };
 
 export default async function Details({
-  params: { keyValue, index, stockId },
+  params: { keyValue = "$1", index = "0", stockId = "1" },
 }: Props) {
   const stock = await getData(keyValue, index, stockId);
 

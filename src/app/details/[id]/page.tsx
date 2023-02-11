@@ -16,7 +16,8 @@ type Props = {
 
 const getData = async (id: String): Promise<Stock> => {
   const res = await fetch(
-    `https://ineuron-stock-server.onrender.com/api/v1/data/${id}`
+    `https://ineuron-stock-server.onrender.com/api/v1/data/${id}`,
+    { cache: "no-store" }
   );
 
   if (!res.ok) {
@@ -55,7 +56,7 @@ const Description = ({ text, variable, index, id }: DescriptionProps) => {
   );
 };
 
-export default async function Details({ params: { id } }: Props) {
+export default async function Details({ params: { id = "1" } }: Props) {
   const stock = await getData(id);
 
   return (
